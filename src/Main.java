@@ -23,11 +23,11 @@ public class Main extends Canvas implements Runnable, MouseListener, MouseMotion
 	
 	private boolean running;
 	
-	private LargeTriangle[][] largeTriangles = new LargeTriangle[30][30];
+	public LargeTriangle[][] largeTriangles = new LargeTriangle[30][30];
 	
-	private MediumTriangle[][] mediumTriangles = new MediumTriangle[50][50];
+	public MediumTriangle[][] mediumTriangles = new MediumTriangle[50][50];
 	
-	private SmallTriangle[][] smallTriangles = new SmallTriangle[100][100];
+	public SmallTriangle[][] smallTriangles = new SmallTriangle[100][100];
 	
 	private Point currentPos = new Point(0, 0);
 	

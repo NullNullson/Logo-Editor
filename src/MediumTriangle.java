@@ -10,8 +10,6 @@ public class MediumTriangle extends Triangle{
 	
 	public int x, y;
 	
-	public Color color;
-	
 	private Polygon triangle;
 	
 	public MediumTriangle(int x, int y, Color color){

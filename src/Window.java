@@ -38,6 +38,8 @@ public class Window extends JFrame implements ActionListener{
 	
 	private JButton export;
 	
+	private JButton derive;
+	
 	public Window(){
 		
 		super("Logo Creator");
@@ -66,7 +68,7 @@ public class Window extends JFrame implements ActionListener{
 		
 		JPanel buttonPanel = new JPanel();
 		
-		buttonPanel.setLayout(new GridLayout(0, 3));
+		buttonPanel.setLayout(new GridLayout(0, 4));
 		
 		buttonPanel.add(chooseColor);
 		
@@ -167,6 +169,14 @@ public class Window extends JFrame implements ActionListener{
 		
 		buttonPanel.add(export);
 		
+		// Derive from source image button
+		
+		derive = new JButton("Derive From Source Image");
+		
+		derive.addActionListener(this);
+		
+		buttonPanel.add(derive);
+		
 		contentPane.add(buttonPanel, BorderLayout.SOUTH);
 		
 		contentPane.add(brushPanel, BorderLayout.EAST);
@@ -242,6 +252,31 @@ public class Window extends JFrame implements ActionListener{
 				try {
 					
 					ImageIO.write(logo, "PNG", chooser.getSelectedFile());
+					
+				} catch (IOException e1) {
+					
+					e1.printStackTrace();
+					
+				}
+				
+			}
+			
+		}
+		else if(e.getSource() == derive){
+			
+			JFileChooser chooser = new JFileChooser();
+			
+			int result = chooser.showOpenDialog(this);
+			
+			if(result == JFileChooser.APPROVE_OPTION){
+				
+				File imageFile = chooser.getSelectedFile();
+				
+				try {
+					
+					BufferedImage image = (BufferedImage)ImageIO.read(imageFile);
+					
+					SourceImageDeriver.fromSourceImage(image, main.smallTriangles);
 					
 				} catch (IOException e1) {
 					

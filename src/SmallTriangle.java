@@ -10,8 +10,6 @@ public class SmallTriangle extends Triangle{
 	
 	public int x, y;
 	
-	public Color color;
-	
 	private Polygon triangle;
 	
 	public SmallTriangle(int x, int y, Color color){
@@ -32,11 +30,11 @@ public class SmallTriangle extends Triangle{
 		
 		int xoffs = y % 2 == 0 ? WIDTH / 2 : 0;
 		
+		int[] xcoords = new int[3];
+		
+		int[] ycoords = new int[3];
+		
 		if(x % 2 == 0){
-			
-			int[] xcoords = new int[3];
-			
-			int[] ycoords = new int[3];
 			
 			xcoords[0] = (int)((x / 2.0) * WIDTH) + xoffs;
 			ycoords[0] = y * HEIGHT;
@@ -47,14 +45,8 @@ public class SmallTriangle extends Triangle{
 			xcoords[2] = (int)((x / 2.0) * WIDTH + WIDTH / 2) + xoffs;
 			ycoords[2] = y * HEIGHT + HEIGHT;
 			
-			this.triangle = new Polygon(xcoords, ycoords, 3);
-			
 		}
 		else{
-			
-			int[] xcoords = new int[3];
-			
-			int[] ycoords = new int[3];
 			
 			xcoords[0] = (int)((x / 2.0) * WIDTH) + xoffs;
 			ycoords[0] = y * HEIGHT + HEIGHT;
@@ -65,9 +57,9 @@ public class SmallTriangle extends Triangle{
 			xcoords[2] = (int)((x / 2.0) * WIDTH + WIDTH / 2) + xoffs;
 			ycoords[2] = y * HEIGHT;
 			
-			this.triangle = new Polygon(xcoords, ycoords, 3);
-			
 		}
+		
+		this.triangle = new Polygon(xcoords, ycoords, 3);
 		
 	}
 	

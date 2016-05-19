@@ -10,8 +10,6 @@ public class LargeTriangle extends Triangle{
 	
 	public int x, y;
 	
-	public Color color;
-	
 	private Polygon triangle;
 	
 	public LargeTriangle(int x, int y, Color color){
